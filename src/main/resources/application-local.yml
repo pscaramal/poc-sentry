@@ -1,0 +1,18 @@
+spring:
+  r2dbc:
+    url: 'r2dbc:pool:postgresql://localhost:5432/db_sentry-poc'
+    username: postgres
+    password: postgres
+    port: 5432
+    host: localhost
+    db: db_sentry-poc
+  flyway:
+    driverClassName: org.postgresql.Driver
+    url: 'jdbc:postgresql://localhost:5432/db_sentry-poc'
+    user: postgres
+    password: postgres
+    enabled: true
+    baseline-on-migrate: true
+  data:
+    mongodb:
+      uri: 'mongodb://app_user:app_password@localhost:27017/poc-sentry-db'
