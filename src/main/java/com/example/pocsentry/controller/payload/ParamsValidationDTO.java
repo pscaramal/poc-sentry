@@ -1,20 +1,11 @@
 package com.example.pocsentry.controller.payload;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.List;
 
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-public class ParamsValidationDTO {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public record ParamsValidationDTO(List<String> value, String type) {
 
-  private List<String> value;
-
-  private String type;
-
-  public List<String> getValue() {
-    return value;
-  }
-
-  public String getType() {
-    return type;
-  }
 }

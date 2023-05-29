@@ -6,9 +6,9 @@ import java.util.List;
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class ParamsValidation {
 
-  private List<String> value;
+  private final List<String> value;
 
-  private String type;
+  private final String type;
 
   private ParamsValidation (List<String> value, String type){
     this.value = value;
@@ -16,6 +16,10 @@ public class ParamsValidation {
   }
 
   public static ParamsValidation fromDTO(ParamsValidationDTO dto){
-    return new ParamsValidation(dto.getValue(), dto.getType());
+    return new ParamsValidation(dto.value(), dto.type());
+  }
+
+  public ParamsValidationDTO toDTO(){
+    return new ParamsValidationDTO(this.value, this.type);
   }
 }

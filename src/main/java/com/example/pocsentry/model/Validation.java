@@ -6,13 +6,13 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Validation {
 
-  private String path;
+  private final String path;
 
-  private String operator;
+  private final String operator;
 
-  private Boolean cardValidation;
+  private final Boolean cardValidation;
 
-  private ParamsValidation paramsValidation;
+  private final ParamsValidation paramsValidation;
 
   private Validation(String path, String operator, Boolean cardValidation, ParamsValidation paramsValidation) {
     this.path = path;
@@ -27,6 +27,15 @@ public class Validation {
         .operator(dto.getOperator())
         .cardValidation(dto.getCardValidation())
         .paramsValidation(ParamsValidation.fromDTO(dto.getParamsValidation()))
+        .build();
+  }
+
+  public ValidationDTO toDTO(){
+    return ValidationDTO.builder()
+        .path(this.path)
+        .operator(this.operator)
+        .isCardValidation(this.cardValidation)
+        .paramsValidation(this.paramsValidation.toDTO())
         .build();
   }
 

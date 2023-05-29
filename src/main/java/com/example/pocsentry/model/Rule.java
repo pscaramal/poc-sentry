@@ -1,6 +1,8 @@
 package com.example.pocsentry.model;
 
 import com.example.pocsentry.controller.payload.RuleRequestDTO;
+import com.example.pocsentry.controller.payload.RuleResponseDTO;
+import com.example.pocsentry.controller.payload.ValidationDTO;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,16 +18,16 @@ public class Rule {
   @Id
   private ObjectId id;
 
-  private String ruleName;
+  private final String ruleName;
 
-  private String ruleType;
+  private final String ruleType;
 
   @Indexed
-  private String segment;
+  private final String segment;
 
-  private Boolean active;
+  private final Boolean active;
 
-  private List<Validation> validations;
+  private final List<Validation> validations;
 
   private Rule(String ruleName, String ruleType, String segment, Boolean active, List<Validation> validations) {
     this.ruleName = ruleName;
@@ -43,6 +45,19 @@ public class Rule {
         .validations(dto.getValidations()
             .stream()
             .map(Validation::fromDTO)
+            .collect(Collectors.toList()))
+        .build();
+  }
+
+  public RuleResponseDTO toDTO() {
+    return RuleResponseDTO.builder()
+        .id(this.id.toString())
+        .ruleName(this.ruleName)
+        .ruleType(this.ruleType)
+        .segment(this.segment)
+        .isActive(this.active)
+        .validations(this.validations.stream()
+            .map(Validation::toDTO)
             .collect(Collectors.toList()))
         .build();
   }
