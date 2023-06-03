@@ -1,17 +1,5 @@
 version: '3.1'
 services:
-  postgree-db:
-    image: 'postgres:13.1'
-    container_name: poc-sentry-db
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: db_sentry-poc
-    volumes:
-      - ~/volumes/sentry/postgres-data:/var/lib/postgresql/data
-
   mongodb:
     image: mongo
     ports:

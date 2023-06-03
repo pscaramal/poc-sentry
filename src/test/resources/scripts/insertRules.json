@@ -1,0 +1,4 @@
+[
+  {"rule_name": "Regra Reprovação Teste", "rule_type": "rpv", "active": true, "segment": "BR", "validations": [ {"path": "merchant.merchantId", "operator": "=", "params_validation": { "value": [ "aa839b1b-2d13-4317-925f-f8ffa38bbcda" ] }, "card_validation": false }, { "path": "payment.paymentMethods.creditCard.bin", "operator": "overlaps", "params_validation": { "value": [ "498431" ] }, "card_validation": true } ]},
+  {"rule_name": "Regra Reprovação Teste", "rule_type": "rpv", "active": true, "segment": "BR", "validations": [ {"path": "merchant.merchantId", "operator": "=", "params_validation": { "value": [ "aa839b1b-2d13-4317-925f-f8ffa38bbcda" ] }, "card_validation": false }, { "path": "payment.paymentMethods.creditCard.bin", "operator": "overlaps", "params_validation": { "value": [ "498431" ] }, "card_validation": true } ]}
+]

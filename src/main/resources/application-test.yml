@@ -1,18 +1,4 @@
 spring:
-  r2dbc:
-    url: 'r2dbc:tc:postgresql:///db_sentry-poc?TC_IMAGE_TAG=13.1'
-    username: postgres
-    password: postgres
-    port: 5432
-    host: localhost
-    db: db_sentry-poc
-#  flyway:
-#    driverClassName: org.postgresql.Driver
-#    url: 'jdbc:tc:postgresql:13.1:///db_sentry-poc?TC_REUSABLE=true'
-#    user: postgres
-#    password: postgres
-#    enabled: true
-#    baseline-on-migrate: true
   data:
     mongodb:
       uri: 'mongodb://app_user:app_password@localhost:27017/poc-sentry-db'

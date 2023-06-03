@@ -23,6 +23,13 @@ public class RuleResponseDTO {
 
   private final List<ValidationDTO> validations;
 
+  public String getId() {
+    return this.id;
+  }
+
+  public String getRuleName() {
+    return this.ruleName;
+  }
   private RuleResponseDTO(String id, String ruleName, String ruleType, String segment, Boolean active, List<ValidationDTO> validations) {
     this.id = id;
     this.ruleName = ruleName;

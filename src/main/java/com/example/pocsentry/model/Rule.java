@@ -29,6 +29,14 @@ public class Rule {
 
   private final List<Validation> validations;
 
+  public String getRuleId() {
+    return this.id.toString();
+  }
+
+  public String getRulename() {
+    return this.ruleName;
+  }
+
   private Rule(String ruleName, String ruleType, String segment, Boolean active, List<Validation> validations) {
     this.ruleName = ruleName;
     this.ruleType = ruleType;
