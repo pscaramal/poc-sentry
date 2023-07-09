@@ -7,7 +7,6 @@ import com.example.pocsentry.controller.payload.ParamsValidationDTO;
 import com.example.pocsentry.controller.payload.RuleRequestDTO;
 import com.example.pocsentry.controller.payload.RuleResponseDTO;
 import com.example.pocsentry.controller.payload.ValidationDTO;
-import java.io.IOException;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -44,7 +43,7 @@ class RuleComponentTest extends BaseConfigTest {
   @Test
   @CleanCollection("rules")
   @InsertMany(file = "scripts/insertRules.json", collectionName = "rules")
-  void shouldGetAllRules() throws IOException {
+  void shouldGetAllRules() {
 
     webTestClient
         .get()
